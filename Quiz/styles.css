@@ -1,0 +1,20 @@
+body { background-color: #f4fdf4; }
+.correct { background-color: #d4edda; }
+.incorrect { background-color: #f8d7da; }
+.option-block {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+.option-block:hover {
+    background-color: #e9f7e9;
+}
+.option-block input {
+    display: none;
+}
+.option-block.selected {
+    background-color: #cce5cc;
+}

@@ -1,0 +1,87 @@
+<!-- filepath: /C:/Training/Angular/form-app/src/app/employee-form/employee-form.component.html -->
+<div class="container">
+    <div class="form-container">
+      <h2>Employee Form</h2>
+      <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" [(ngModel)]="employee.name" name="name" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" [(ngModel)]="employee.email" name="email" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" [(ngModel)]="employee.phone" name="phone" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" [(ngModel)]="employee.dob" name="dob" required>
+        </div>
+      
+        <div class="form-group">
+          <label>Gender:</label>
+          <label class="radio-inline">
+            <input type="radio" [(ngModel)]="employee.gender" name="gender" value="Male" required> Male
+          </label>
+          <label class="radio-inline">
+            <input type="radio" [(ngModel)]="employee.gender" name="gender" value="Female" required> Female
+          </label>
+        </div>
+      
+        <div class="form-group">
+          <label for="department">Department:</label>
+          <select id="department" [(ngModel)]="employee.department" name="department" required>
+            <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+          </select>
+        </div>
+      
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <textarea id="address" [(ngModel)]="employee.address" name="address" required></textarea>
+        </div>
+      
+        <div class="form-group">
+          <label class="checkbox-inline">
+            <input type="checkbox" [(ngModel)]="employee.isPermanent" name="isPermanent"> Permanent Employee
+          </label>
+        </div>
+      
+        <button type="submit" [disabled]="!employeeForm.form.valid">Submit</button>
+      </form>
+    </div>
+  
+    <div class="table-container">
+      <h3>Submitted Employees</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Address</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees">
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.phone }}</td>
+            <td>{{ emp.dob }}</td>
+            <td>{{ emp.gender }}</td>
+            <td>{{ emp.department }}</td>
+            <td>{{ emp.address }}</td>
+            <td>{{ emp.isPermanent ? 'Permanent' : 'Temporary' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
